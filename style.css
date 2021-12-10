@@ -1,0 +1,124 @@
+:root {
+  --dark_navy: #002642;
+  --claret: #840032;
+  --gamboge: #e59500;
+  --gainsboro: #e5dada;
+  --black: #02040f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Poppins;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  background-color: var(--dark_navy);
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+}
+
+.logo {
+  color: var(--gamboge);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 22px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--gainsboro);
+  margin: 7px;
+}
+
+.burger {
+  display: block;
+}
+
+.burger:hover {
+  background-color: var(--gamboge);
+  cursor: pointer;
+}
+
+.nav-links {
+  position: absolute;
+  right: 0px;
+  height: 92vh;
+  top: 8vh;
+  background-color: var(--dark_navy);
+  list-style-type: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
+}
+
+.nav-links li {
+  opacity: 0;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  color: var(--gainsboro);
+  text-decoration: none;
+  letter-spacing: 3px;
+  transition: ease 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--gamboge);
+  font-size: 20px;
+  transition: ease 0.2s;
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nav {
+    height: 8vh;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+    width: 50%;
+    transform: translateX(0%);
+    height: 8vh;
+  }
+
+  .nav-links li {
+    opacity: 100;
+  }
+
+  .burger {
+    display: none;
+  }
+}
